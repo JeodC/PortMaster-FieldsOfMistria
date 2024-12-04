@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Fields of Mistria.sh</path>
+		<name>Fields Of Mistria</name>
+		<desc>Start your new life! Build the farm of your dreams as you discover a world brimming with possibilities. Magic, romance, and adventure all await you in this nostalgic farming / life sim RPG!</desc>
+		<image>./fieldsofmistria/cover.png</image>
+		<releasedate>20240805</releasedate>
+		<developer>NPC Studio</developer>
+		<genre>Indie, RPG, Simulation</genre>
+	</game>
+</gamelist>
