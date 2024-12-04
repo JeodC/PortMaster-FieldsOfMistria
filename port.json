@@ -1,0 +1,31 @@
+{
+  "version": 3,
+  "name": "fieldsofmistria.zip",
+  "items": [
+    "Fields of Mistria.sh",
+    "fieldsofmistria"
+  ],
+  "items_opt": [],
+  "attr": {
+    "title": "Fields of Mistria",
+    "porter": [
+      "Jeod"
+    ],
+    "desc": "Start your new life! Build the farm of your dreams as you discover a world brimming with possibilities. Magic, romance, and adventure all await you in this nostalgic farming / life sim RPG!",
+    "desc_md": null,
+    "inst": "Buy the game on Steam and copy all the data to `fieldsofmistria/data`.",
+    "inst_md": null,
+    "genres": [
+      "rpg",
+	  "simulation"
+    ],
+    "image": null,
+    "rtr": true,
+    "exp": false,
+    "runtime": null,
+    "reqs": [],
+    "arch": [
+      "aarch64"
+    ]
+  }
+}
