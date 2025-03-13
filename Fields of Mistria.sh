@@ -13,7 +13,7 @@ source $controlfolder/control.txt
 get_controls
 
 # Variables
-GAMEDIR=/$directory/ports/fieldsofmistria
+GAMEDIR="/$directory/windows/fieldsofmistria"
 
 # CD and set permissions
 cd $GAMEDIR
@@ -33,8 +33,6 @@ export WINEDEBUG=-all
 if ! winetricks list-installed | grep -q "^vcrun2022$"; then
     pm_message "vcrun2022 is not installed. Installing now."
     winetricks --unattended --no-isolate vcrun2022
-else
-    pm_message "vcrun2022 is already installed. Skipping installation."
 fi
 
 # Config Setup
