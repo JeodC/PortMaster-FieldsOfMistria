@@ -13,7 +13,7 @@ source $controlfolder/control.txt
 get_controls
 
 # Variables
-GAMEDIR="/$directory/windows/fieldsofmistria"
+GAMEDIR="/$directory/ports/fieldsofmistria"
 
 # CD and set permissions
 cd $GAMEDIR
@@ -21,12 +21,16 @@ cd $GAMEDIR
 
 # Display loading splash
 if [ -f "$GAMEDIR/patchlog.txt" ]; then
-    [ "$CFW_NAME" == "muOS" ] && $ESUDO $GAMEDIR/splash "splash.png" 1
-    $ESUDO $GAMEDIR/splash "splash.png" 30000 & 
+    $ESUDO $GAMEDIR/tools/splash "$GAMEDIR/splash.png" 30000 & 
 fi
 
+# Exports
+export PATCHER_FILE="$GAMEDIR/tools/patchscript"
+export PATCHER_GAME="$(basename "${0%.*}")" # This gets the current script filename without the extension
+export PATCHER_TIME="1 to 3 minutes"
+
 export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
-export WINEPREFIX=~/.wine64
+export WINEPREFIX=/storage/.wine64
 export WINEDEBUG=-all
 
 # Install dependencies
@@ -38,6 +42,16 @@ fi
 # Config Setup
 mkdir -p $GAMEDIR/config
 bind_directories "$WINEPREFIX/drive_c/users/root/AppData/Local/FieldsOfMistria" "$GAMEDIR/config"
+
+# Check if patchlog.txt to skip patching
+if [ ! -f patchlog.txt ]; then
+    if [ -f "$controlfolder/utils/patcher.txt" ]; then
+        source "$controlfolder/utils/patcher.txt"
+        $ESUDO kill -9 $(pidof gptokeyb)
+    else
+        pm_message "This port requires the latest version of PortMaster."
+    fi
+fi
 
 # Run the game
 $GPTOKEYB "FieldsOfMistria.exe" -c "./mistria.gptk" &
